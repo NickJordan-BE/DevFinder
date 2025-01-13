@@ -1,36 +1,50 @@
 import Link from 'next/link'
+import { useAuth } from '../context/AuthContext';
 
 export default function NavLinks() {
+    const { auth } = useAuth();
     interface link {
         name: string,
         href: string,
+        needAuth: boolean | null
     }
 
    const links: link[] = [{
         name: "Home",
-        href: "/"
+        href: "/",
+        needAuth: null
    },
    {
         name: "Explore Posts",
-        href: "/posts"
+        href: "/posts",
+        needAuth: null
    },
    {
+        name: "My Posts",
+        href: "/posts/myposts",
+        needAuth: true
+    },
+   {
         name: "Sign In",
-        href: "/login"
+        href: "/login",
+        needAuth: false
     },
     {
-        name: "Sign Up",
-        href: "/register"
+        name: "Log Out",
+        href: '/',
+        needAuth: true
+    },
+    {
+        name: "Profile",
+        href: '/register',
+        needAuth: true
     }
-    ];
+    
 //    {
 //         name: "Posts",
 //         href: "/posts"
 //    },
-//     {
-//         name: "Manage Posts",
-//         href: "/my-posts"
-//    },
+    ];
 //    {
 //     name: "My Post",
 //     href: "/my-posts/[id]"
@@ -42,18 +56,20 @@ export default function NavLinks() {
         fontSize: 18 + 'px',
         textDecoration: "none",
     }
-
+    
     return (
         <>
             {links.map((link : link) => {
-                return (
-                    <Link
-                    key={link.name}
-                    href={link.href} 
-                    style={navLinkStyle}>
-                        {link.name}
-                    </Link>
-                )
+                if ((!link.needAuth && !auth) || (auth && link.needAuth) || link.needAuth === null) {
+                    return (
+                        <Link
+                        key={link.name}
+                        href={link.href} 
+                        style={navLinkStyle}>
+                            {link.name}
+                        </Link>
+                    )
+                }
             })}
         </>
     )

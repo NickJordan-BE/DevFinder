@@ -2,9 +2,11 @@ import Link from "next/link";
 import Image from "next/image";
 import React from "react";
 import { Button } from "react-bootstrap";
-import codeBack from '../../public/codingback.png'
+import codeBack from '../../public/codingback.png';
+
 
 const Home = () => {
+
 
     return (
         <div className="p-0"> 

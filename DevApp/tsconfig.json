@@ -22,6 +22,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "pages/index.tsx", "pages/login.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "pages/index.tsx", "pages/login.jsx", "app/components/LogInClient.jsx", "app/components/LogInClient.jsx"],
   "exclude": ["node_modules"]
 }

@@ -1,18 +1,17 @@
-import { Post } from "../../../server/models/posts"
+import { Post } from "../../server/models/posts";
 import PostsFinder from "../api/PostsFinder";
 import React from "react"
 import PostsList from "../components/PostsList"
-import NavBar from "../components/NavBar";
+import { AxiosResponse } from "axios";
 
 
 const posts = async () => {
     try {
-        const result = await PostsFinder.get("/")
+        const result: AxiosResponse = await PostsFinder.get("/")
         const posts: Post[] = result.data.data.posts
 
         return (
             <>
-                <NavBar />
                 <h1 className="text-center">Posts</h1>
                 <PostsList posts={posts} />
             </>
@@ -27,4 +26,4 @@ const posts = async () => {
         
 }
 
-export default posts
+export default posts;

@@ -5,8 +5,6 @@ import { Navbar, Nav } from 'react-bootstrap';
 import NavLinks from './NavLinks';
 
 const NavBar = () => {
-
-
     return (
         <Navbar bg="dark" variant="dark" expand="lg">
         {/* <Navbar.Brand href="/"><img alt="brand logo" src={brandLogo} width="50px" style={{margin: 5 + "px"}}></img></Navbar.Brand> */}
